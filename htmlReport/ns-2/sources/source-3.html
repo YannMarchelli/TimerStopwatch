@@ -1,0 +1,154 @@
+
+
+
+<!DOCTYPE html>
+<html id="htmlId">
+<head>
+  <title>Coverage Report > HeadlessGUI</title>
+  <style type="text/css">
+    @import "../../css/coverage.css";
+    @import "../../css/idea.min.css";
+  </style>
+  <script type="text/javascript" src="../../js/highlight.min.js"></script>
+  <script type="text/javascript" src="../../js/highlightjs-line-numbers.min.js"></script>
+</head>
+
+<body>
+<div class="content">
+<div class="breadCrumbs">
+Current scope:     <a href="../../index.html">all classes</a>
+    <span class="separator">|</span>
+    <a href="../index.html">gui</a>
+</div>
+
+<h1>Coverage Summary for Class: HeadlessGUI (gui)</h1>
+
+<table class="coverageStats">
+<tr>
+  <th class="name">Class</th>
+<th class="coverageStat 
+">
+  Class, %
+</th>
+<th class="coverageStat 
+">
+  Method, %
+</th>
+<th class="coverageStat 
+">
+  Line, %
+</th>
+</tr>
+<tr>
+  <td class="name">HeadlessGUI</td>
+<td class="coverageStat">
+  <span class="percent">
+    100%
+  </span>
+  <span class="absValue">
+    (1/1)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    100%
+  </span>
+  <span class="absValue">
+    (4/4)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    100%
+  </span>
+  <span class="absValue">
+    (16/16)
+  </span>
+</td>
+</tr>
+
+</table>
+
+<br/>
+<br/>
+
+
+<pre>
+<code class="sourceCode" id="sourceCode">&nbsp;package gui;
+&nbsp;
+&nbsp;import states.Context;
+&nbsp;import states.EventListener;
+&nbsp;
+&nbsp;import javax.swing.JButton;
+&nbsp;import javax.swing.JLabel;
+&nbsp;
+&nbsp;/**
+&nbsp; * @author tommens
+&nbsp; * This class represents a Headless GUI, which is a GUI that is never drawn on the screen,
+&nbsp; * even though it contains real buttons and labels. They are just not visible to the user.
+&nbsp; * Why is this useful? To be able to run automated tests on the GUI in headless mode
+&nbsp; * on remote servers that do not have a screen, without getting a Headless exception error.
+&nbsp; * In order to create a real Swing GUI, use the SwingGUI subclass of HeadlessGUI.
+&nbsp; */
+&nbsp;public class HeadlessGUI extends AbstractGUI {
+&nbsp;
+&nbsp;    public JButton b1, b2, b3;
+&nbsp;    public JLabel myText1, myText2, myText3;
+&nbsp;
+<b class="fc">&nbsp;    public HeadlessGUI(EventListener o) { super(o); }</b>
+&nbsp;    
+&nbsp;    protected void initGUI() {
+&nbsp;        //Notice that we initialise three buttons and three labels but we never display them.
+<b class="fc">&nbsp;        b1 = new JButton();</b>
+<b class="fc">&nbsp;        b2 = new JButton();</b>
+<b class="fc">&nbsp;        b3 = new JButton();</b>
+<b class="fc">&nbsp;        myText1 = new JLabel();</b>
+<b class="fc">&nbsp;        myText2 = new JLabel();</b>
+<b class="fc">&nbsp;        myText3 = new JLabel();</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    protected void addEventListener() {
+&nbsp;    	// compact way of adding action listeners (since Java8, using lambda expressions)
+<b class="fc">&nbsp;    	b1.addActionListener(e -&gt; observer.left());</b>
+<b class="fc">&nbsp;        b2.addActionListener(e -&gt; observer.up());</b>
+<b class="fc">&nbsp;        b3.addActionListener(e -&gt; observer.right());</b>
+&nbsp;   }
+&nbsp;    
+&nbsp;    public void updateUI(Context c) {
+<b class="fc">&nbsp;        myText1.setText(c.getDisplayText());</b>
+<b class="fc">&nbsp;        myText2.setText(c.getModeText());</b>
+<b class="fc">&nbsp;        myText3.setText(c.getStateText());</b>
+&nbsp;        // update the button labels:
+<b class="fc">&nbsp;        b1.setText(c.getLeftText());</b>
+<b class="fc">&nbsp;        b2.setText(c.getUpText());</b>
+<b class="fc">&nbsp;        b3.setText(c.getRightText());</b>
+&nbsp;    }
+&nbsp;       
+&nbsp;}
+</code>
+</pre>
+</div>
+
+<script type="text/javascript">
+(function() {
+    var msie = false, msie9 = false;
+    /*@cc_on
+      msie = true;
+      @if (@_jscript_version >= 9)
+        msie9 = true;
+      @end
+    @*/
+
+    if (!msie || msie && msie9) {
+      hljs.highlightAll()
+      hljs.initLineNumbersOnLoad();
+    }
+})();
+</script>
+
+<div class="footer">
+    
+    <div style="float:right;">generated on 2023-02-20 16:47</div>
+</div>
+</body>
+</html>

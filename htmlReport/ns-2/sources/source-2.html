@@ -1,0 +1,236 @@
+
+
+
+<!DOCTYPE html>
+<html id="htmlId">
+<head>
+  <title>Coverage Report > ConsoleGUI</title>
+  <style type="text/css">
+    @import "../../css/coverage.css";
+    @import "../../css/idea.min.css";
+  </style>
+  <script type="text/javascript" src="../../js/highlight.min.js"></script>
+  <script type="text/javascript" src="../../js/highlightjs-line-numbers.min.js"></script>
+</head>
+
+<body>
+<div class="content">
+<div class="breadCrumbs">
+Current scope:     <a href="../../index.html">all classes</a>
+    <span class="separator">|</span>
+    <a href="../index.html">gui</a>
+</div>
+
+<h1>Coverage Summary for Class: ConsoleGUI (gui)</h1>
+
+<table class="coverageStats">
+
+<tr>
+  <th class="name">Class</th>
+<th class="coverageStat 
+">
+  Method, %
+</th>
+<th class="coverageStat 
+">
+  Line, %
+</th>
+</tr>
+<tr>
+  <td class="name">ConsoleGUI</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/4)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/26)
+  </span>
+</td>
+</tr>
+  <tr>
+    <td class="name">ConsoleGUI$1</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/2)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/2)
+  </span>
+</td>
+  </tr>
+  <tr>
+    <td class="name">ConsoleGUI$2</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/2)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/2)
+  </span>
+</td>
+  </tr>
+  <tr>
+    <td class="name">ConsoleGUI$3</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/2)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/2)
+  </span>
+</td>
+  </tr>
+<tr>
+  <td class="name"><strong>Total</strong></td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/10)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/32)
+  </span>
+</td>
+</tr>
+</table>
+
+<br/>
+<br/>
+
+
+<pre>
+<code class="sourceCode" id="sourceCode">&nbsp;package gui;
+&nbsp;
+&nbsp;import states.Context;
+&nbsp;import states.EventListener;
+&nbsp;
+&nbsp;import javax.swing.*;
+&nbsp;import java.awt.*;
+&nbsp;import java.awt.event.ActionEvent;
+&nbsp;import java.awt.event.ActionListener;
+&nbsp;
+&nbsp;// UNFINISHED WORK: THIS CLASS NEEDS TO BE REWRITTEN TO USE ANOTHER GUI
+&nbsp;// (NOT SWING, BUT DOING EVERYTHING DIRECTLY FROM THE CONSOLE.
+&nbsp;public class ConsoleGUI extends AbstractGUI {
+&nbsp;    
+&nbsp;    private JButton b1, b2, b3;
+&nbsp;
+<b class="nc">&nbsp;    public ConsoleGUI(EventListener o) { super(o); }</b>
+&nbsp;    
+&nbsp;    protected void initGUI() {
+<b class="nc">&nbsp;        b1 = new JButton();</b>
+<b class="nc">&nbsp;        b2 = new JButton();</b>
+<b class="nc">&nbsp;        b3 = new JButton();</b>
+<b class="nc">&nbsp;        JLabel myText1 = new JLabel();</b>
+<b class="nc">&nbsp;        JLabel myText2 = new JLabel();</b>
+<b class="nc">&nbsp;        JLabel myText3 = new JLabel();</b>
+&nbsp;
+<b class="nc">&nbsp;        JFrame myFrame = new JFrame(&quot;Chronometer&quot;);</b>
+<b class="nc">&nbsp;        Container myContent = myFrame.getContentPane();</b>
+&nbsp;        // grid layout with 2 rows and 3 columns
+<b class="nc">&nbsp;        myContent.setLayout(new GridLayout(2,3,1,1));</b>
+&nbsp;        // filling first row of grid (3 columns) with text information
+<b class="nc">&nbsp;        myContent.add(myText1,0);</b>
+<b class="nc">&nbsp;        myContent.add(myText2,1);</b>
+<b class="nc">&nbsp;        myContent.add(myText3,2);</b>
+&nbsp;        // filling second row of grid (3 columns) with buttons
+<b class="nc">&nbsp;        myContent.add(b1);</b>
+<b class="nc">&nbsp;        myContent.add(b2);</b>
+<b class="nc">&nbsp;        myContent.add(b3);</b>
+<b class="nc">&nbsp;        myFrame.pack();</b>
+<b class="nc">&nbsp;        myFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);</b>
+<b class="nc">&nbsp;        myFrame.setVisible(true);</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    protected void addEventListener() {
+<b class="nc">&nbsp;        b1.addActionListener(new ActionListener() { </b>
+&nbsp;        	public void actionPerformed(ActionEvent e) {
+<b class="nc">&nbsp;        		observer.left();</b>
+&nbsp;                }
+&nbsp;        	});
+<b class="nc">&nbsp;        b2.addActionListener(new ActionListener() {</b>
+&nbsp;        	public void actionPerformed(ActionEvent e) {
+<b class="nc">&nbsp;        		observer.up();</b>
+&nbsp;                }
+&nbsp;        	});
+<b class="nc">&nbsp;        b3.addActionListener(new ActionListener() {</b>
+&nbsp;        	public void actionPerformed(ActionEvent e) {
+<b class="nc">&nbsp;        		observer.right();</b>
+&nbsp;                }
+&nbsp;        	});
+&nbsp;   }
+&nbsp;    
+&nbsp;    public void updateUI(Context c) {
+<b class="nc">&nbsp;    	System.out.println(</b>
+<b class="nc">&nbsp;    			&quot;Running in mode &quot; + c.getModeText() +</b>
+<b class="nc">&nbsp;    			&quot; in state &quot; + c.getStateText() +</b>
+<b class="nc">&nbsp;    			&quot; with value &quot; + c.getDisplayText() );</b>
+&nbsp;    }
+&nbsp;   
+&nbsp;}
+</code>
+</pre>
+</div>
+
+<script type="text/javascript">
+(function() {
+    var msie = false, msie9 = false;
+    /*@cc_on
+      msie = true;
+      @if (@_jscript_version >= 9)
+        msie9 = true;
+      @end
+    @*/
+
+    if (!msie || msie && msie9) {
+      hljs.highlightAll()
+      hljs.initLineNumbersOnLoad();
+    }
+})();
+</script>
+
+<div class="footer">
+    
+    <div style="float:right;">generated on 2023-02-20 16:47</div>
+</div>
+</body>
+</html>

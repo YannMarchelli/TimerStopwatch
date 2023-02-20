@@ -1,0 +1,140 @@
+
+
+
+<!DOCTYPE html>
+<html id="htmlId">
+<head>
+  <title>Coverage Report > RunningStopwatch</title>
+  <style type="text/css">
+    @import "../../css/coverage.css";
+    @import "../../css/idea.min.css";
+  </style>
+  <script type="text/javascript" src="../../js/highlight.min.js"></script>
+  <script type="text/javascript" src="../../js/highlightjs-line-numbers.min.js"></script>
+</head>
+
+<body>
+<div class="content">
+<div class="breadCrumbs">
+Current scope:     <a href="../../index.html">all classes</a>
+    <span class="separator">|</span>
+    <a href="../index.html">states.stopwatch</a>
+</div>
+
+<h1>Coverage Summary for Class: RunningStopwatch (states.stopwatch)</h1>
+
+<table class="coverageStats">
+<tr>
+  <th class="name">Class</th>
+<th class="coverageStat 
+">
+  Class, %
+</th>
+<th class="coverageStat 
+">
+  Method, %
+</th>
+<th class="coverageStat 
+">
+  Line, %
+</th>
+</tr>
+<tr>
+  <td class="name">RunningStopwatch</td>
+<td class="coverageStat">
+  <span class="percent">
+    100%
+  </span>
+  <span class="absValue">
+    (1/1)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    88,9%
+  </span>
+  <span class="absValue">
+    (8/9)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    90,9%
+  </span>
+  <span class="absValue">
+    (10/11)
+  </span>
+</td>
+</tr>
+
+</table>
+
+<br/>
+<br/>
+
+
+<pre>
+<code class="sourceCode" id="sourceCode">&nbsp;package states.stopwatch;
+&nbsp;
+&nbsp;import states.ClockState;
+&nbsp;
+&nbsp;public class RunningStopwatch extends ActiveStopwatch {
+&nbsp; 
+&nbsp;	// use Singleton design pattern
+<b class="fc">&nbsp;	private RunningStopwatch() {} // make constructor invisible to clients</b>
+<b class="fc">&nbsp;    private static RunningStopwatch instance = null;</b>
+&nbsp;    public static RunningStopwatch Instance() {
+<b class="fc">&nbsp;        if(instance == null) instance = new RunningStopwatch();                </b>
+<b class="fc">&nbsp;        return instance;</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    @Override
+&nbsp;    public ClockState up() {
+<b class="fc">&nbsp;        return transition(LaptimeStopwatch.Instance());</b>
+&nbsp;    }
+<b class="fc">&nbsp;    public String getUpText() { return &quot;split&quot;; }</b>
+&nbsp;    
+&nbsp;    @Override
+&nbsp;    public ClockState right() {
+<b class="nc">&nbsp;        return transition(ResetStopwatch.Instance());</b>
+&nbsp;    }
+<b class="fc">&nbsp;    public String getRightText() {return &quot;reset&quot;; }</b>
+&nbsp;    
+&nbsp;    @Override
+&nbsp;    protected ClockState doIt() {
+<b class="fc">&nbsp;      totalTime++;</b>
+<b class="fc">&nbsp;      return this;</b>
+&nbsp;      }
+&nbsp;    
+&nbsp;    public String getDisplayString() {
+<b class="fc">&nbsp;        return &quot;totalTime = &quot; + totalTime;</b>
+&nbsp;    }
+&nbsp;     
+&nbsp;}
+</code>
+</pre>
+</div>
+
+<script type="text/javascript">
+(function() {
+    var msie = false, msie9 = false;
+    /*@cc_on
+      msie = true;
+      @if (@_jscript_version >= 9)
+        msie9 = true;
+      @end
+    @*/
+
+    if (!msie || msie && msie9) {
+      hljs.highlightAll()
+      hljs.initLineNumbersOnLoad();
+    }
+})();
+</script>
+
+<div class="footer">
+    
+    <div style="float:right;">generated on 2023-02-20 16:47</div>
+</div>
+</body>
+</html>
